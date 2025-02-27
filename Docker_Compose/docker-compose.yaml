@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+    fastapi:
+        build: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - /Users/adamarzemy/adam_DE_Project-1/Docker_Compose/FastAPI:/data
+        depends_on:
+            - redis
+        environment:
+            - REDIS_HOST=redis
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.0'
+                    memory: 512M
+        memswap_limit: 1G
+        networks:
+            - custom_network
+        restart: unless-stopped
+
+    redis: 
+    image: redis:alpine
+    ports:
+        - "6379:6379"
+    volumes:
+        - redis-data:/data
+    deploy:
+        resources:
+            limits:
+                cpus: '0.5'
+                memory: 256M
+    memswap_limit: 512M
+    networks:
+        - custom_network
+    restart: unless-stopped
+
+networks:
+    custom_network:
+        driver: bridge
+
+volumes:
+    redis-data:

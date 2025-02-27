@@ -1,0 +1,38 @@
+[2025-02-27T17:19:12.012+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-27T17:19:12.017+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: send_to_snowflake.upload_raw_to_snowflake manual__2025-02-27T17:04:16.225668+00:00 [queued]>
+[2025-02-27T17:19:12.019+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: send_to_snowflake.upload_raw_to_snowflake manual__2025-02-27T17:04:16.225668+00:00 [queued]>
+[2025-02-27T17:19:12.019+0000] {taskinstance.py:2856} INFO - Starting attempt 6 of 9
+[2025-02-27T17:19:12.023+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): upload_raw_to_snowflake> on 2025-02-27 17:04:16.225668+00:00
+[2025-02-27T17:19:12.026+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=436) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-27T17:19:12.027+0000] {standard_task_runner.py:72} INFO - Started process 438 to run task
+[2025-02-27T17:19:12.027+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'send_to_snowflake', 'upload_raw_to_snowflake', 'manual__2025-02-27T17:04:16.225668+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/send_to_snowflakes.py', '--cfg-path', '/tmp/tmpnj7ed4hs']
+[2025-02-27T17:19:12.029+0000] {standard_task_runner.py:105} INFO - Job 54: Subtask upload_raw_to_snowflake
+[2025-02-27T17:19:12.047+0000] {task_command.py:467} INFO - Running <TaskInstance: send_to_snowflake.upload_raw_to_snowflake manual__2025-02-27T17:04:16.225668+00:00 [running]> on host c26148b7476d
+[2025-02-27T17:19:12.071+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='send_to_snowflake' AIRFLOW_CTX_TASK_ID='upload_raw_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-02-27T17:04:16.225668+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-27T17:04:16.225668+00:00'
+[2025-02-27T17:19:12.072+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-27T17:19:12.084+0000] {warnings.py:112} WARNING - /opt/***/dags/send_to_snowflakes.py:63: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  df = pd.read_json(df_json)
+
+[2025-02-27T17:19:12.099+0000] {base.py:84} INFO - Retrieving connection 'Snowflake-Connection'
+[2025-02-27T17:19:12.100+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.0, Python Version: 3.12.5, Platform: Linux-6.12.5-linuxkit-aarch64-with-glibc2.36
+[2025-02-27T17:19:12.100+0000] {connection.py:1187} INFO - Connecting to GLOBAL Snowflake domain
+[2025-02-27T17:19:12.100+0000] {connection.py:1268} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-02-27T17:19:12.670+0000] {warnings.py:112} WARNING - /opt/***/dags/send_to_snowflakes.py:81: UserWarning: Pandas Dataframe has non-standard index of type <class 'pandas.core.indexes.base.Index'> which will not be written. Consider changing the index to pd.RangeIndex(start=0,...,step=1) or call reset_index() to keep index as column(s)
+  success, nchunks, nrows, _ = write_pandas(
+
+[2025-02-27T17:19:13.277+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-02-27T17:19:14.835+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-02-27T17:19:15.326+0000] {cursor.py:1156} INFO - Number of results in first chunk: 15
+[2025-02-27T17:19:15.631+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-02-27T17:19:17.169+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-02-27T17:19:17.171+0000] {logging_mixin.py:190} INFO - Successfully uploaded 2223 rows in 1 chunks to RAW_EMPLOYEE_DATA in Snowflake.
+[2025-02-27T17:19:17.172+0000] {connection.py:779} INFO - closed
+[2025-02-27T17:19:17.208+0000] {connection.py:785} INFO - No async queries seem to be running, deleting session
+[2025-02-27T17:19:17.251+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-27T17:19:17.264+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-27T17:19:17.265+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=send_to_snowflake, task_id=upload_raw_to_snowflake, run_id=manual__2025-02-27T17:04:16.225668+00:00, execution_date=20250227T170416, start_date=20250227T171912, end_date=20250227T171917
+[2025-02-27T17:19:17.307+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-02-27T17:19:17.317+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-27T17:19:17.318+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
